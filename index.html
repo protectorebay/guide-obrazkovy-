@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Overlay Slideshow</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        overflow: hidden;
+    }
+
+    #container {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+    }
+
+    img {
+        position: absolute;
+        width: 1920px;
+        height: 1080px;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 2s ease-in-out;
+    }
+
+    img.active {
+        opacity: 1;
+    }
+</style>
+</head>
+
+<body>
+<div id="container">
+    <img id="img1" src="https://raw.githubusercontent.com/protectorebay/guige-obrazky/f1f0b996cab2f2366eb4c70c8bc5c14a451e3e50/1.png">
+    <img id="img2" src="https://raw.githubusercontent.com/protectorebay/guige-obrazky/f1f0b996cab2f2366eb4c70c8bc5c14a451e3e50/2.png">
+</div>
+
+<script>
+    const img1 = document.getElementById('img1');
+    const img2 = document.getElementById('img2');
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function loop() {
+        while (true) {
+
+            // IMAGE 1
+            img1.classList.add('active');   // fade in
+            await sleep(15000);             // show 15s
+
+            img1.classList.remove('active'); // fade out
+            await sleep(5000);               // wait 5s
+
+            // IMAGE 2
+            img2.classList.add('active');   // fade in
+            await sleep(15000);             // show 15s
+
+            img2.classList.remove('active'); // fade out
+
+            // WAIT 5 MINUTES
+            await sleep(300000);            // 5 min
+        }
+    }
+
+    loop();
+</script>
+
+</body>
+</html>
