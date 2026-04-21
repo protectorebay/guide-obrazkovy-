@@ -36,13 +36,14 @@
 
 <body>
 <div id="container">
-    <img id="img1" src="https://raw.githubusercontent.com/protectorebay/guige-obrazky/f1f0b996cab2f2366eb4c70c8bc5c14a451e3e50/1.png">
-    <img id="img2" src="https://raw.githubusercontent.com/protectorebay/guige-obrazky/f1f0b996cab2f2366eb4c70c8bc5c14a451e3e50/2.png">
+    <img src="https://raw.githubusercontent.com/protectorebay/guige-obrazky/f1f0b996cab2f2366eb4c70c8bc5c14a451e3e50/1.png">
+    <img src="https://raw.githubusercontent.com/protectorebay/guige-obrazky/f1f0b996cab2f2366eb4c70c8bc5c14a451e3e50/2.png">
+    <img src="https://raw.githubusercontent.com/protectorebay/guige-obrazky/f1f0b996cab2f2366eb4c70c8bc5c14a451e3e50/3.png">
+    <img src="https://raw.githubusercontent.com/protectorebay/guige-obrazky/f1f0b996cab2f2366eb4c70c8bc5c14a451e3e50/4.png">
 </div>
 
 <script>
-    const img1 = document.getElementById('img1');
-    const img2 = document.getElementById('img2');
+    const images = document.querySelectorAll('#container img');
 
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -50,22 +51,17 @@
 
     async function loop() {
         while (true) {
+            for (let i = 0; i < images.length; i++) {
 
-            // IMAGE 1
-            img1.classList.add('active');   // fade in
-            await sleep(15000);             // show 15s
+                images[i].classList.add('active'); // fade in
+                await sleep(15000);                // show 15s
 
-            img1.classList.remove('active'); // fade out
-            await sleep(5000);               // wait 5s
+                images[i].classList.remove('active'); // fade out
+                await sleep(5000);                    // gap between images
+            }
 
-            // IMAGE 2
-            img2.classList.add('active');   // fade in
-            await sleep(25000);             // show 15s
-
-            img2.classList.remove('active'); // fade out
-
-            // WAIT 5 MINUTES
-            await sleep(100000);            // 5 min
+            // long pause after full cycle
+            await sleep(100000); // ~1m40s (ak chceš presne 5 min, daj 300000)
         }
     }
 
