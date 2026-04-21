@@ -36,10 +36,10 @@
 
 <body>
 <div id="container">
-    <img src="https://raw.githubusercontent.com/protectorebay/guige-obrazky/f1f0b996cab2f2366eb4c70c8bc5c14a451e3e50/1.png">
-    <img src="https://raw.githubusercontent.com/protectorebay/guige-obrazky/f1f0b996cab2f2366eb4c70c8bc5c14a451e3e50/2.png">
-    <img src="https://raw.githubusercontent.com/protectorebay/guige-obrazky/f1f0b996cab2f2366eb4c70c8bc5c14a451e3e50/3.png">
-    <img src="https://raw.githubusercontent.com/protectorebay/guige-obrazky/f1f0b996cab2f2366eb4c70c8bc5c14a451e3e50/4.png">
+    <img src="https://raw.githubusercontent.com/protectorebay/guige-obrazky/3d6f7108815be010b50781e4c73d470a6ef0be4a/1.png">
+    <img src="https://raw.githubusercontent.com/protectorebay/guige-obrazky/3d6f7108815be010b50781e4c73d470a6ef0be4a/2.png">
+    <img src="https://raw.githubusercontent.com/protectorebay/guige-obrazky/3d6f7108815be010b50781e4c73d470a6ef0be4a/3.png">
+    <img src="https://raw.githubusercontent.com/protectorebay/guige-obrazky/3d6f7108815be010b50781e4c73d470a6ef0be4a/4.png">
 </div>
 
 <script>
@@ -57,11 +57,11 @@
                 await sleep(15000);                // show 15s
 
                 images[i].classList.remove('active'); // fade out
-                await sleep(5000);                    // gap between images
+                await sleep(5000);                    // gap 5s
             }
 
-            // long pause after full cycle
-            await sleep(100000); // ~1m40s (ak chceš presne 5 min, daj 300000)
+            // PAUSE AFTER FULL LOOP
+            await sleep(300000); // 5 minutes
         }
     }
 
